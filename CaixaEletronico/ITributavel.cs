@@ -8,6 +8,6 @@ namespace Caelum.CaixaEletronico.Modelo
 {
     interface ITributavel
     {
-        double CalculaTributo();;
+        double CalculaTributo();
     }
 }
