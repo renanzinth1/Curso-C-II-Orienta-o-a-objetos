@@ -7,3 +7,13 @@ C:\Users\caelum\Documents\Visual Studio 2015\Projects\CaixaEletronico\CaixaEletr
 C:\Users\caelum\Documents\Visual Studio 2015\Projects\CaixaEletronico\CaixaEletronico\obj\Release\CaixaEletronico.csproj.GenerateResource.Cache
 C:\Users\caelum\Documents\Visual Studio 2015\Projects\CaixaEletronico\CaixaEletronico\obj\Release\CaixaEletronico.exe
 C:\Users\caelum\Documents\Visual Studio 2015\Projects\CaixaEletronico\CaixaEletronico\obj\Release\CaixaEletronico.pdb
+C:\Users\Usuario\source\repos\CaixaEletronico\CaixaEletronico\bin\Release\CaixaEletronico.exe.config
+C:\Users\Usuario\source\repos\CaixaEletronico\CaixaEletronico\bin\Release\CaixaEletronico.exe
+C:\Users\Usuario\source\repos\CaixaEletronico\CaixaEletronico\bin\Release\CaixaEletronico.pdb
+C:\Users\Usuario\source\repos\CaixaEletronico\CaixaEletronico\obj\Release\CaixaEletronico.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\source\repos\CaixaEletronico\CaixaEletronico\obj\Release\CaixaEletronico.Form1.resources
+C:\Users\Usuario\source\repos\CaixaEletronico\CaixaEletronico\obj\Release\CaixaEletronico.Properties.Resources.resources
+C:\Users\Usuario\source\repos\CaixaEletronico\CaixaEletronico\obj\Release\CaixaEletronico.csproj.GenerateResource.Cache
+C:\Users\Usuario\source\repos\CaixaEletronico\CaixaEletronico\obj\Release\CaixaEletronico.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\CaixaEletronico\CaixaEletronico\obj\Release\CaixaEletronico.exe
+C:\Users\Usuario\source\repos\CaixaEletronico\CaixaEletronico\obj\Release\CaixaEletronico.pdb

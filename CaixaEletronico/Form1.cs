@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Caelum.CaixaEletronico.Modelo;
+using Caelum.CaixaEletronico.Modelo.Contas;
+using Caelum.CaixaEletronico.Modelo.Usuarios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,25 +53,36 @@ namespace CaixaEletronico
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string textoValorSaque = valorOperacao.Text;
+            string textoValorDeposito = valorOperacao.Text;
 
-            double valorDeposito = Convert.ToDouble(textoValorSaque);
+            double valorDeposito = Convert.ToDouble(textoValorDeposito);
 
-            int indiceSelecionado = comboContas.SelectedIndex;
+            Conta contaSelecionada = this.BuscaContaSelecionada();
 
-            Conta contaSelecionada = this.contas[indiceSelecionado];
             contaSelecionada.Deposita(valorDeposito);
 
             this.MostraConta(contaSelecionada);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs eA)
         {
             string textoValorSaque = valorOperacao.Text;
 
             double valorSaque = Convert.ToDouble(textoValorSaque);
             Conta contaSelecionada = this.BuscaContaSelecionada();
-            contaSelecionada.Saca(valorSaque);
+
+            try { 
+                contaSelecionada.Saca(valorSaque);
+                MessageBox.Show("Dinheiro Liberado");
+            }
+            catch (SaldoInsuficienteException e)
+            {
+                MessageBox.Show("Saldo insuficiente. " + e.Message);
+            }
+            catch (ArgumentException e)
+            {
+                MessageBox.Show("Não é possível sacar um valor negativo. " + e.Message);
+            }
 
             this.MostraConta(contaSelecionada);
         }
@@ -82,22 +96,15 @@ namespace CaixaEletronico
 
         private Conta BuscaContaSelecionada()
         {
-            int indiceSelecionado = comboContas.SelectedIndex;
-            return this.contas[indiceSelecionado];
+            Object objetoSelecionado = comboContas.SelectedItem;
+            Conta contaSelecionada = (Conta) objetoSelecionado;
+
+            return contaSelecionada;
+
+            //int indiceSelecionado = comboContas.SelectedIndex;
+            //return this.contas[indiceSelecionado];
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Conta c1 = new ContaCorrente();
-            c1.Deposita(200.0);
-            ContaPoupanca c2 = new ContaPoupanca();
-            c2.Deposita(125.0);
-            TotalizadorDeContas t = new TotalizadorDeContas();
-            t.Soma(c1);
-            t.Soma(c2);
-
-            MessageBox.Show("valor total: " + t.ValorTotal);
-        }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -123,23 +130,15 @@ namespace CaixaEletronico
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void testeEquals_click(object sender, EventArgs e)
         {
-            GerenciadorDeImposto gerenciador = new GerenciadorDeImposto();
+            Cliente guilherme = new Cliente("Guilherme");
+            guilherme.Rg = "12345678-9";
 
-            ContaPoupanca cp = new ContaPoupanca();
-            SeguroDeVida sv = new SeguroDeVida();
-
-            gerenciador.Adiciona(cp);
-            gerenciador.Adiciona(sv);
-
-            MessageBox.Show("Total: " + gerenciador.Total);
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            ContaCorrente c = new ContaCorrente();
-            MessageBox.Show("A proxima conta corrente será de numero: " + c.ProximaConta());
+            Cliente paulo = new Cliente("Paulo");
+            paulo.Rg = "12345678-9";
+            //paulo.Rg = "98765432-1"; teste diferente
+            MessageBox.Show(guilherme.ToString() + "\n é igual a \n" + paulo.ToString() + " ? \n\n" + guilherme.Equals(paulo));
         }
     }
 }
